@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web" TreatAsLocalProperty="TargetFramework">
+	<Import Project="$(RepositoryDirectory)\Common\Common.Wasm.props" />
+
+	<PropertyGroup>
+		<WinUITarget>2.x</WinUITarget>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="WasmCSS\Fonts.css" />
+		<EmbeddedResource Include="WasmScripts\AppManifest.js" />
+	</ItemGroup>
+</Project>

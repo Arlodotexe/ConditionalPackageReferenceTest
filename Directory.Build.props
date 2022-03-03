@@ -1,0 +1,15 @@
+<Project>
+
+  <PropertyGroup>
+    <RepositoryDirectory>$(MSBuildThisFileDirectory)</RepositoryDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>Embedded</DebugType>
+    <PackageOutputPath>bin\Package</PackageOutputPath>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+</Project>

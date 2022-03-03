@@ -1,0 +1,16 @@
+{
+  "solution": {
+    "path": "ConditionalPackageReferenceTest.sln",
+    "projects": [
+		"ConditionalPackageReferenceTest.Shared\\ConditionalPackageReferenceTest.Shared.shproj",
+
+
+
+
+		"ConditionalPackageReferenceTest.Wasm\\ConditionalPackageReferenceTest.Wasm.csproj",
+
+
+
+    ]
+  }
+}
