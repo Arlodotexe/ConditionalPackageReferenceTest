@@ -1,0 +1,23 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+  <Import Project="$(RepositoryDirectory)\Common\Common.MultiTarget.props" />
+  
+  <ItemGroup>
+    <Page Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+    <Compile Update="**\*.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="BlankPage1.xaml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <UpToDateCheckInput Remove="BlankPage1.xaml" />
+  </ItemGroup>
+</Project>
