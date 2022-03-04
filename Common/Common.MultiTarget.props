@@ -1,32 +1,32 @@
 <Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 
-  <PropertyGroup>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+	<PropertyGroup>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
 
-    <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    <EnableDefaultPageItems>false</EnableDefaultPageItems>
-  </PropertyGroup>
+		<GenerateLibraryLayout>true</GenerateLibraryLayout>
+		<EnableDefaultPageItems>false</EnableDefaultPageItems>
+	</PropertyGroup>
 
-  <Target Name="ValidateWinUITarget" Condition="'$(TargetFramework)' == 'netstandard2.0'" BeforeTargets="BeforeBuild">
-    <PropertyGroup>
-      <DefineConstants Condition="'$(WinUITarget)' == '3.x'">WINAPPSDK</DefineConstants>
-    </PropertyGroup>
+	<Target Name="ValidateWinUITarget" Condition="'$(TargetFramework)' == 'netstandard2.0'" BeforeTargets="BeforeBuild">
+		<PropertyGroup>
+			<DefineConstants Condition="'$(WinUITarget)' == '3.x'">WINAPPSDK</DefineConstants>
+		</PropertyGroup>
 
-    <Error Condition="'$(WinUITarget)' != '2.x' AND '$(WinUITarget)' != '3.x'"
-           Text="Property 'WinUITarget' contained an invalid value '$(WinUITarget)'. A value of '2.x' or '3.x' is expected when building an Uno target."/>
-      
-    <Message Text="Using WinUITarget $(WinUITarget) in $(MSBuildProjectName) ($(TargetFramework))" />
+		<Error Condition="'$(WinUITarget)' != '2.x' AND '$(WinUITarget)' != '3.x'"
+			   Text="Property 'WinUITarget' contained an invalid value '$(WinUITarget)'. A value of '2.x' or '3.x' is expected when building an Uno target."/>
 
-    <ItemGroup>
-      <PackageReference Condition="'$(WinUITarget)' == '2.x'" Include="Uno.UI" Version="4.0.13"/>
-      <PackageReference Condition="'$(WinUITarget)' == '3.x'" Include="Uno.WinUI" Version="4.0.13"/>
-    </ItemGroup>
-  </Target>
+		<Message Text="Using WinUITarget $(WinUITarget) in $(MSBuildProjectName) ($(TargetFramework))" />
+	</Target>
 
-  <ItemGroup>
-    <PackageReference Condition="'$(TargetFramework)' == 'uap10.0.19041'" Include="Microsoft.UI.Xaml" Version="2.7.0" />
-    <PackageReference Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'" Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Condition="'$(WinUITarget)' == '2.x'" Include="Uno.UI" Version="4.0.13"/>
+		<PackageReference Condition="'$(WinUITarget)' == '3.x'" Include="Uno.WinUI" Version="4.0.13"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Condition="'$(TargetFramework)' == 'uap10.0.19041'" Include="Microsoft.UI.Xaml" Version="2.7.0" />
+		<PackageReference Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'" Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
+	</ItemGroup>
 </Project>

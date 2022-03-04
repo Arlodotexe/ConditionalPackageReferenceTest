@@ -11,11 +11,9 @@
 		<EmbeddedResource Include="WasmScripts\AppManifest.js" />
 	</ItemGroup>
 
-	<Target Name="AddVariableWinUITargetProjectReferences" BeforeTargets="BeforeBuild">
-		<ItemGroup>
-			<ProjectReference Include="$(RepositoryDirectory)\LibraryOne\LibraryOne.csproj">
-				<AdditionalProperties>WinUITarget=$(WinUITarget)</AdditionalProperties>
-			</ProjectReference>
-		</ItemGroup>
-	</Target>
+	<ItemGroup>
+		<ProjectReference Include="$(RepositoryDirectory)\LibraryOne\LibraryOne.csproj">
+			<AdditionalProperties>WinUITarget=$(WinUITarget)</AdditionalProperties>
+		</ProjectReference>
+	</ItemGroup>
 </Project>
